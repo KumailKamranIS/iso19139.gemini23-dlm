@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2001-2016 Food and Agriculture Organization of the
+  ~ United Nations (FAO-UN), United Nations World Food Programme (WFP)
+  ~ and United Nations Environment Programme (UNEP)
+  ~
+  ~ This program is free software; you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation; either version 2 of the License, or (at
+  ~ your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful, but
+  ~ WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program; if not, write to the Free Software
+  ~ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
+  ~
+  ~ Contact: Jeroen Ticheler - FAO - Viale delle Terme di Caracalla 2,
+  ~ Rome - Italy. email: geonetwork@osgeo.org
+  -->
+
+<strings>
+  <understandResource>Information about the dataset</understandResource>
+  <relatedResources>Related services and linked data</relatedResources>
+  <techInfo>Technical information</techInfo>
+  <contactInfo>Contact information</contactInfo>
+  <mdContactInfo>Metadata contact</mdContactInfo>
+  <refDate>Reference date</refDate>
+  <temporalRef>Temporal information</temporalRef>
+  <constraintInfo>Access constraint information</constraintInfo>
+  <xml_iso19139>Save this metadata as an ISO19139 XML file</xml_iso19139>
+  <xml_iso19139Tooai_dc>Save this metadata as an OAI Dublin Core XML file</xml_iso19139Tooai_dc>
+
+  <!-- New strings added for the AngularJS editor -->
+  <!-- View and tabs -->
+  <advanced>Advanced</advanced>
+  <default>Default</default>
+  <simple>Simple</simple>
+  <inspire>INSPIRE</inspire>
+  <inspire_sds>SDS</inspire_sds>
+
+  <keywordFrom>Keywords - </keywordFrom>
+  <resource>Resource</resource>
+  <xml>XML</xml>
+  <metadata>Metadata</metadata>
+  <identificationInfo>Identification</identificationInfo>
+  <distributionInfo>Distribution</distributionInfo>
+  <dataQualityInfo>Quality</dataQualityInfo>
+  <spatialRepresentationInfo>Spatial rep.</spatialRepresentationInfo>
+  <referenceSystemInfo>Ref. system</referenceSystemInfo>
+  <contentInfo>Content</contentInfo>
+  <portrayalCatalogueInfo>Portrayal</portrayalCatalogueInfo>
+  <metadataConstraints>Md. constraints</metadataConstraints>
+  <metadataMaintenance>Md. maintenance</metadataMaintenance>
+  <applicationSchemaInfo>Schema info</applicationSchemaInfo>
+  <noThesaurusName>Keywords</noThesaurusName>
+  <bboxesSection>Geographic coverage</bboxesSection>
+  <overviews>Overviews</overviews>
+  <metadataInXML>XML</metadataInXML>
+  <providedBy>Publishing Body</providedBy>
+  <shareOnSocialSite>Share on social sites</shareOnSocialSite>
+  <viewMode>Views</viewMode>
+  <linkToPortal>Access the portal</linkToPortal>
+  <linkToPortal-help>Full access to the portal and metadata.</linkToPortal-help>
+  <citationProposal>Citation proposal</citationProposal>
+  <citationProposal-help>This proposal was automatically generated, check if the metadata authors did not specified custom citation requirements.</citationProposal-help>
+  <associatedResources>Associated resources (if any)</associatedResources>
+
+  <!-- XSD error translation -->
+  <invalidElement>Invalid element. Invalid content was found starting with element:</invalidElement>
+  <onElementOf>One of the following elements</onElementOf>
+  <isExpected>is expected.</isExpected>
+  <isNotComplete>is not complete.</isNotComplete>
+  <elementLocated>Parent element is</elementLocated>
+  <missingElement>Missing element. The content of element:</missingElement>
+  <invalidValue>Invalid or missing value.</invalidValue>
+  <notValidFor>is not a valid value for</notValidFor>
+  <xsdErrorIs>XSD error is:</xsdErrorIs>
+  <inElement>in element</inElement>
+  <enum1>Value</enum1>
+  <enum2>is not valid for the field</enum2>
+  <enum3>List of values is :</enum3>
+
+  <!-- INSPIRE view labels and help -->
+  <url>Online resource</url>
+  <identifier>Resource identifier</identifier>
+  <rsIdentifier>Projection</rsIdentifier>
+  <referenceDate>Temporal information</referenceDate>
+  <creationDate>Creation date</creationDate>
+  <hierarchyLevel>Hierarchy level</hierarchyLevel>
+  <publicationDate>Publication date</publicationDate>
+  <revisionDate>Revision date</revisionDate>
+  <temporalRangeSection>Temporal extent</temporalRangeSection>
+  <beginPosition>Begin</beginPosition>
+  <endPosition>End</endPosition>
+  <conformity>Conformity</conformity>
+  <conformity_title>Title</conformity_title>
+  <conformity_date>Reference Date</conformity_date>
+  <explanation>Explanation</explanation>
+  <conformity_explanation>Explanation</conformity_explanation>
+  <pass>Degree</pass>
+  <indeterminatePosition>Indeterminate position</indeterminatePosition>
+  <pointOfContact>Contact for the resource</pointOfContact>
+  <metadataPointOfContact>Contact for the metadata</metadataPointOfContact>
+  <organisationName>Organisation name</organisationName>
+  <electronicMailAddress>Email</electronicMailAddress>
+  <role>Role</role>
+  <encoding>Encoding</encoding>
+  <inspireTheme>INSPIRE themes</inspireTheme>
+  <inspireThemeURI>INSPIRE themes</inspireThemeURI>
+  <format>Format</format>
+  <format_version>Version</format_version>
+  <format_specification>Specification</format_specification>
+  <lineage>Lineage</lineage>
+  <spatialResolution>Spatial resolution (scale)</spatialResolution>
+  <spatialDistance>Spatial resolution (distance)</spatialDistance>
+  <accessConstraints>Access constraints</accessConstraints>
+  <useConstraints>Use constraints</useConstraints>
+  <useLimitation>Use limitation</useLimitation>
+  <add-resource-id>Compute resource identifier</add-resource-id>
+  <add-resource-idHelp>Compose the resource identifier using the catalog URL and the metadata
+    identifier (eg. http://www.organization.org/catalogue/5391bf69-44bc-4ea0-8cc0-6cf6c3bc81ae).
+  </add-resource-idHelp>
+  <add-extent-from-geokeywords>Compute extent from keyword</add-extent-from-geokeywords>
+  <add-extent-from-geokeywordsHelp>Analyze each keyword of type place and add matching extent.
+  </add-extent-from-geokeywordsHelp>
+  <classificationSection>Classification of data and services</classificationSection>
+  <temporalSection>Temporal reference</temporalSection>
+  <restrictionsSection>Restrictions on access and use</restrictionsSection>
+  <metadataSection>Metadata information</metadataSection>
+  <responsibleOrganisationSection>Responsible organization (s)</responsibleOrganisationSection>
+  <qualityAndValiditySection>Quality and validity</qualityAndValiditySection>
+  <spatialRepresentationType>Spatial representation type</spatialRepresentationType>
+  <topicCategory>Topic category code</topicCategory>
+  <metadataLanguage>Metadata language</metadataLanguage>
+  <inspireServiceTaxonomy>INSPIRE Service Taxonomy</inspireServiceTaxonomy>
+  <otherConstraints>Other constraints</otherConstraints>
+  <operatesOn>Coupled resource</operatesOn>
+  <extent>Geographic bounding box</extent>
+  <freeTextKeywords>Other keywords</freeTextKeywords>
+  <resource_url>URL</resource_url>
+  <resource_protocol>Protocol</resource_protocol>
+
+  <addCrs>Projection</addCrs>
+  <addCrs4936>ETRS89-XYZ</addCrs4936>
+  <addCrs4937>ETRS89-GRS80h</addCrs4937>
+  <addCrs4258>ETRS89-GRS80</addCrs4258>
+  <addCrs3035>ETRS89-LAEA</addCrs3035>
+  <addCrs3034>ETRS89-LCC</addCrs3034>
+  <addCrs3038>ETRS89-TM26N</addCrs3038>
+  <addCrs3039>ETRS89-TM27N</addCrs3039>
+  <addCrs3040>ETRS89-TM28N</addCrs3040>
+  <addCrs3041>ETRS89-TM29N</addCrs3041>
+  <addCrs3042>ETRS89-TM30N</addCrs3042>
+  <addCrs3043>ETRS89-TM31N</addCrs3043>
+  <addCrs3044>ETRS89-TM32N</addCrs3044>
+  <addCrs3045>ETRS89-TM33N</addCrs3045>
+  <addCrs3046>ETRS89-TM34N</addCrs3046>
+  <addCrs3047>ETRS89-TM35N</addCrs3047>
+  <addCrs3048>ETRS89-TM36N</addCrs3048>
+  <addCrs3049>ETRS89-TM37N</addCrs3049>
+  <addCrs3050>ETRS89-TM38N</addCrs3050>
+  <addCrs3051>ETRS89-TM39N</addCrs3051>
+  <addCrs5730>EVRS</addCrs5730>
+  <addCrs7409>ETRS89-GRS80-EVRS</addCrs7409>
+
+  <!-- String for INSPIRE SDS tab -->
+
+  <inspire_sds_cc1>Conformance class 1: invocable</inspire_sds_cc1>
+  <inspire_sds_cc2>Conformance class 2: interoperable</inspire_sds_cc2>
+  <inspire_sds_cc3>Conformance class 3: harmonized</inspire_sds_cc3>
+
+  <sds-category>Category</sds-category>
+  <inspire_add_pass>Add pass element</inspire_add_pass>
+  <sds-add-dataquality>Add DataQuality element</sds-add-dataquality>
+  <sds-add-dataqualityHelp>TG4: For each spatial data service, there shall be one and only one set
+    of quality information (dataQualityInfo element) scoped to “service”.
+  </sds-add-dataqualityHelp>
+  <sds-add-tech-spec>Add a technical specification</sds-add-tech-spec>
+  <sds-add-tech-specHelp>TG8: The Specification metadata element shall at least refer to or contain
+    one technical specification to which the invocable spatial data service fully conforms,
+    providing all the necessary technical elements, to actually invoke the service and enable its
+    usage.
+  </sds-add-tech-specHelp>
+  <sds-tech-spec>Technical specification</sds-tech-spec>
+  <conformity_desc>Specification Title</conformity_desc>
+  <conformity_linkage>Specification URL</conformity_linkage>
+
+
+  <sds-section-qos>Quality of Service</sds-section-qos>
+  <sds-add-qualityofservice>Add missing Quality of Service criteria</sds-add-qualityofservice>
+  <sds-add-qualityofserviceHelp>INSPIRE SDS requires three quality of service criteria to be
+    reported in the metadata: Availability, Performance and Capacity. This button will add the
+    missing criteria.
+  </sds-add-qualityofserviceHelp>
+  <qos_measure>Measure:</qos_measure>
+  <qos_uom>UOM</qos_uom>
+  <qos_description>Description</qos_description>
+  <qos_value>Value</qos_value>
+  <sds-section-crs>Coordinate reference system</sds-section-crs>
+
+  <sds-fix-category>Fix the Category element</sds-fix-category>
+  <sds-fix-categoryHelp>(Rec1) Replace gco:CharacterString with gmx:Anchor in the description
+    metadata element.
+  </sds-fix-categoryHelp>
+
+  <sds-accesspoint>Access Point URL</sds-accesspoint>
+  <sds-add-accesspoint>Add Access Point</sds-add-accesspoint>
+
+  <sds-endpoint>Endpoint URL</sds-endpoint>
+  <sds-add-endpoint>Add Endpoint</sds-add-endpoint>
+
+  <sds-addNoConstraints>No Limitation</sds-addNoConstraints>
+  <sds-addNoConstraintsHelp>Add an element that documents that there are no limitation for this
+    service.
+  </sds-addNoConstraintsHelp>
+  <sds-addUnknownConstraints>Unknown Limitation</sds-addUnknownConstraints>
+  <sds-addConstraints>Customizable constraints</sds-addConstraints>
+
+  <sds>
+    <noConditionsApply>No conditions apply</noConditionsApply>
+    <conditionsUnknown>Conditions unknown</conditionsUnknown>
+  </sds>
+
+  <sds-limitation>Limitation</sds-limitation>
+
+  <sds-section-custodian>Responsible custodian</sds-section-custodian>
+  <sds-addOperation>Add Operation</sds-addOperation>
+
+
+  <addAccessConstraints>Access constraints</addAccessConstraints>
+  <addUseConstraints>Add use contraints</addUseConstraints>
+  <addContact>Add contact</addContact>
+  <addVerticalExtent>Vertical Extent</addVerticalExtent>
+
+  <!-- Custom help for Gemini 2.3 elements, from https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series -->
+
+  <fileidentifier_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">To support the operation of UK Location and INSPIRE, discovery metadata records must include a File Identifier for the resource.</p>
+      <ol class="help-block">
+        <li>File Identifier must be populated with a unique identifier. This may be a UUID generated by a metadata creation tool.</li>
+        <li>Once created and published to UK Location, the File Identifier must not be changed.</li>
+        <li>A change to the File Identifier would represent the creation of a new resource.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#45">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</fileidentifier_help>
+<fileidentifiersrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">To support the operation of UK Location and INSPIRE, discovery metadata records must include a File Identifier for the resource.</p>
+      <ol class="help-block">
+        <li>File Identifier must be populated with a unique identifier. This may be a UUID generated by a metadata creation tool.</li>
+        <li>Once created and published to UK Location, the File Identifier must not be changed.</li>
+        <li>A change to the File Identifier would represent the creation of a new resource.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#45">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</fileidentifiersrv_help>
+ <metadatadate_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Date on which the metadata was last updated, or was confirmed as being up-to-date, or if not updated, then the date it was created.</p>
+      <ol class="help-block">
+        <li>This should be updated whenever the metadata is updated due to a change in the dataset, or when it is reviewed and confirmed as wholly correct.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#30">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+  </metadatadate_help>
+  <metadatadatesrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Date on which the metadata was last updated, or was confirmed as being up-to-date, or if not updated, then the date it was created.</p>
+      <ol class="help-block">
+        <li>This should be updated whenever the metadata is updated due to a change in the dataset, or when it is reviewed and confirmed as wholly correct.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#30">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+  </metadatadatesrv_help>
+  <metadatacontact_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This is the organisation or role in an organisation responsible for this metadata.</p>
+      <ol class="help-block">
+        <li>Should include organisation name, delivery point, and contact email address.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#35">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+  </metadatacontact_help>
+  <metadatacontactsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This is the organisation or role in an organisation responsible for this metadata.</p>
+      <ol class="help-block">
+        <li>Should include organisation name, delivery point, and contact email address.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#35">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+  </metadatacontactsrv_help>
+<hierachylevelname_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Conditional, required when Resource type (ISO hierarchyLevel) is not "dataset".</p>
+      <ol class="help-block">
+        <li>Set to an appropriate text string, or delete if not required. Use of nilreasons is not recommended.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#47">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</hierachylevelname_help>
+<hierachylevelnamesrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Conditional, required when Resource type (ISO hierarchyLevel) is not "dataset".</p>
+      <ol class="help-block">
+        <li>Set to an appropriate text string, or delete if not required. Use of nilreasons is not recommended.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#47">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</hierachylevelnamesrv_help>
+<hierarchylevel_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Scope to which metadata applies. To distinguish between datasets, series, and services</p>
+      <ol class="help-block">
+        <li>Choose the appropriate value from the list.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#39">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</hierarchylevel_help>
+<hierarchylevelsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Scope to which metadata applies. To distinguish between datasets, series, and services</p>
+      <ol class="help-block">
+        <li>Choose the appropriate value from the list.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#39">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</hierarchylevelsrv_help>
+  <limitations_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to identify any external restrictions on access to the data such as licence arrangements.</p>
+      <ol class="help-block">
+        <li>For INSPIRE: If no limitations apply, enter 'No limitations'.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#25">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</limitations_help>
+<limitationssrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to identify any external restrictions on access to the data such as licence arrangements.</p>
+      <ol class="help-block">
+        <li>For INSPIRE: If no limitations apply, enter 'No limitations'.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#25">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</limitationssrv_help>
+  <use_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to describe any restrictions on usage of the data (as opposed to access).</p>
+      <ol class="help-block">
+        <li>Any known constraints should be identified. If no conditions apply, then 'no conditions apply' should be recorded.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#26">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</use_help>
+
+<usesrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to describe any restrictions on usage of the data (as opposed to access).</p>
+      <ol class="help-block">
+        <li>Any known constraints should be identified. If no conditions apply, then 'no conditions apply' should be recorded.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-servicess#26">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</usesrv_help>
+  <parentidentifier_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Supports parent-child relationships in metadata. Allows navigation from a dataset record to the series record of which it forms a part.</p>
+      <ol class="help-block">
+        <li>Only to be used if the dataset is part of a series. Delete if not required. Use of nilreasons is not recommended.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#49">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</parentidentifier_help>
+ <parentidentifiernil_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block"><b>The parent identifier block has been marked as 'inapplicable' so will not be shown/</b></p>
+      <ol class="help-block">
+        <li>To add a parent identifier switch to the metadata tab in full view</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#49">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</parentidentifiernil_help>
+<metadatalanguage_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this is to identify the language used in a multi-lingual metadata service, for example in the INSPIRE geo-portal.</p>
+      <ol class="help-block">
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#33">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</metadatalanguage_help>
+<abstract_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The abstract should provide a clear and concise statement that enables the reader to understand the content of the data or service.</p>
+      <ol class="help-block">
+        <li>For Gemini compliance, the abstract should be at least 100 characters long.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#4">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</abstract_help>
+<abstractsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The abstract should provide a clear and concise statement that enables the reader to understand the content of the data or service.</p>
+      <ol class="help-block">
+        <li>For Gemini compliance, the abstract should be at least 100 characters long.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#4">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</abstractsrv_help>
+<supplemental_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to record relevant information that does not clearly belong in another element.</p>
+      <ol class="help-block">
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#27">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</supplemental_help>
+<resourceidentifier_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this is to uniquely identify the data resource.</p>
+      <ol class="help-block">
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#36">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</resourceidentifier_help>
+<!-- <conformity_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this is to record the conformity to the INSPIRE or other data specification.</p>
+      <ol class="help-block">
+        <li>For the default options for datasets and services, choose the appropriate snippet</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#41">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</conformity_help> -->
+<spatialresolution_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to provide an indication of how detailed the spatial data is. It is equivalent to the ground sample distance. It should not be confused with the scale of a map, which is purely a display attribute (the spatial resolution should be defined in the specification of the data resource).</p>
+      <ol class="help-block">
+        <li>For datasets and series only. For services this information should be recorded in the abstract</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#18">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</spatialresolution_help>
+<extent_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This element defines the geographical extent of coverage of the data resource relative to an administrative hierarchy. Use a known authority code or a linked data URI (eg data.os.uk)</p>
+      <ol class="help-block">
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#15">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</extent_help>
+<extentsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This element defines the geographical extent of coverage of the data resource relative to an administrative hierarchy. Use a known authority code or a linked data URI (eg data.os.uk)</p>
+      <ol class="help-block">
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#15">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</extentsrv_help>
+<bbox_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Rectangle enclosing the extent of the data resource described in latitude and longitude.</p>
+      <ol class="help-block">
+        <li>Draw a rectangle on the map or choose a region using the region picker</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#44">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</bbox_help>
+<bboxsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Rectangle enclosing the extent of the data resource described in latitude and longitude.</p>
+      <ol class="help-block">
+        <li>Draw a rectangle on the map or choose a region using the region picker</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#44">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</bboxsrv_help>
+<keyword_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Provide a keyword to describe the general subject of the resource. Keywords should preferrably be from a controlled vocabulary, in which case the title and reference date of the vocabulary should be provided, or free text.</p>
+      <ol class="help-block">
+        <li>For INSPIRE, at least one keyword should describe the relevant INSPIRE spatial data theme from GEMET</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#6">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</keyword_help>
+<keywordsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Provide a keyword to describe the general subject of the resource. Keywords should preferrably be from a controlled vocabulary, in which case the title and reference date of the vocabulary should be provided, or free text.</p>
+      <ol class="help-block">
+        <li>For INSPIRE, at least one keyword should describe the relevant INSPIRE spatial data theme from GEMET</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#6">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</keywordsrv_help>
+<lineage_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to give an indication of how the data resource was created. It is useful in determining its fitness for purpose.</p>
+      <ol class="help-block">
+        <li>Include information on source material, processes, method of updating, and quality control processes</li>
+        <li>Not required for services.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#10">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</lineage_help>
+<maintenance_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Information about the scope and frequency of updating.</p>
+      <ol class="help-block">
+        <li>Include at least the Update Frequency, choose from the dropdown list</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#53">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</maintenance_help>
+<!-- <scope_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The scope that the data quality report refers to.</p>
+      <ol class="help-block">
+        <li>Include at least a report where the scope is the entire dataset or series. Choose from the appropriate code snippet.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#48">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</scope_help>
+<scopesrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The scope that the data quality report refers to.</p>
+      <ol class="help-block">
+        <li>Include at least a report where the scope is the entire service. Choose from the appropriate code snippet.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#48">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</scopesrv_help> -->
+<responsibleparty_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This informs the user about who is responsible for the data resource.</p>
+      <ol class="help-block">
+        <li>Include at least the organisation name, delivery point, email, and role. A generic role may be given. Delete those you don't need, or use advanced view to add more elements.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#23">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</responsibleparty_help>
+<responsiblepartysrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This informs the user about who is responsible for the data resource.</p>
+      <ol class="help-block">
+        <li>Include at least the organisation name, delivery point, email, and role. A generic role may be given.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#23">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</responsiblepartysrv_help>
+<spatialref_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to identify the way in which the data is spatially referenced in the data resource. This may be by coordinates or geographic identifiers.</p>
+      <ol class="help-block">
+        <li>For INSPIRE compliance at least EPSG 4258 should be included.</li>
+        <li>Pick an EPSG Code from the list.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#17">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</spatialref_help>
+<spatialrefsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to identify the way in which the data is spatially referenced in the data resource. This may be by coordinates or geographic identifiers.</p>
+      <ol class="help-block">
+        <li>Only coordinate reference system identifiers specified in a well-known common register may be used.</li>
+        <li>Pick an EPSG Code from the list.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#17">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</spatialrefsrv_help>
+<spatialrep_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The type in which the spatial data is represented.</p>
+      <ol class="help-block">
+        <li>Choose from the dropdown list.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#50">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</spatialrep_help>
+<tempextent_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This is the date or date range that identifies the currency of the data. It may refer to the period of collection, or the date at which it is deemed to be current. Mandatory for Datasets and Series.</p>
+      <ol class="help-block">
+        <li>This element should not be confused with Dataset reference date which is an identifying date for the data resource.</li>
+        <li>To indicate an indeterminate date select the appropriate entry from the dropdown.
+          <ul>
+            <li>If the indeterminate position is "now" or "unknown", leave the date blank</li>
+            <li>If the indeterminate position is "before" or "after" fill in the date</li>
+          </ul>
+        </li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#7">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</tempextent_help>
+<tempextentsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This is the date or date range that identifies the currency of the data. It may refer to the period of collection, or the date at which it is deemed to be current.</p>
+      <ol class="help-block">
+        <li>This element should not be confused with Dataset reference date which is an identifying date for the data resource.</li>
+        <li>The correct way to indicate the end temporal extent being "present day" or similar is as follows:
+          <ul>
+            <li>Activate "More details" from clicking on the eye button at the top right of the screen</li>
+            <li>From the available options below the "End date" field, choose "Indeterminate position"</li>
+            <li>From the "Indeterminate position" dropdown, choose "Now"</li>
+          </ul>
+        </li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#7">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</tempextentsrv_help>
+<title_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to provide a readily recognisable name for the resource.</p>
+      <ol class="help-block">
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#1">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</title_help>
+<titlesrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to provide a readily recognisable name for the resource.</p>
+      <ol class="help-block">
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#1">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</titlesrv_help>
+<servicetype_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This identifies the type of service.</p>
+      <ol class="help-block">
+        <li>Choose from the dropdown list.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#37">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</servicetype_help>
+<topic_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to provide a basic classification for the data resource.</p>
+      <ol class="help-block">
+        <li>Choose from the search options</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#5">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</topic_help>
+<verticalextent_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to describe the vertical range of the data resource (where relevant).</p>
+      <ol class="help-block">
+        <li>Optional. Delete if not required. Use of nilreasons is not recommended.</li>
+        <li>Provide a minimum value and maximum value in the units of the provided coordinate reference system</li>
+        <li>Identify the coordinate reference system used for vertical extent measurements from the dropdown list.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#16">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</verticalextent_help>
+<verticalextentsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to describe the vertical range of the data resource (where relevant).</p>
+      <ol class="help-block">
+        <li>Optional. Delete if not required. Use of nilreasons is not recommended.</li>
+        <li>Provide a minimum value and maximum value in the units of the provided coordinate reference system</li>
+        <li>Identify the coordinate reference system used for vertical extent measurements from the dropdown list.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#16">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</verticalextentsrv_help>
+<coupledresource_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This identifies the dataset(s) associated with the service</p>
+      <ol class="help-block">
+        <li>Conditional - mandatory for View and Download services, optional for other service types.</li>
+        <li>Identify the data resources by either an OGC CSW GetRecordById request or an address of a metadata instance in a WAF</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#38">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</coupledresource_help>
+<datasetlang_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">This is the written language used for any text in the dataset.</p>
+      <ol class="help-block">
+        <li>Choose from the dropdown list.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#3">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</datasetlang_help>
+<charset_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The character encoding used in the dataset.</p>
+      <ol class="help-block">
+        <li>Optional if UTF8, mandatory if other</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#51">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</charset_help>
+<refdate_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The reference date for the data resource.</p>
+      <ol class="help-block">
+        <li>Dataset reference date is a notional date of 'publication' of the data resource. It is different from Temporal extent which is the actual date of the currency of the data.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#8">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</refdate_help>
+<refdatesrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The reference date for the data resource.</p>
+      <ol class="help-block">
+        <li>Dataset reference date is a notional date of 'publication' of the data resource. It is different from Temporal extent which is the actual date of the currency of the data.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#8">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</refdatesrv_help>
+<distribution_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The format in which the digital data is provided.</p>
+      <ol class="help-block">
+        <li>Record the format from the dropdown list, and the version (if known).</li>
+        <li>If the version is not known, record it as "unknown"</li>
+        <li>If the version is recorded as "unknown" make sure the nilReason is not filled in as well</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#21">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</distribution_help>
+<distributionsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Not required for services.</p>
+      </div>
+  </div>
+</distributionsrv_help>
+<resourcelocator_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to point to where the dataset or dataset series may be directly accessed online, or to an online resource providing more information about accessing the dataset or dataset series.</p>
+      <ol class="help-block">
+        <li>Use the associated resource wizard for adding or editing resource locators.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#19">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</resourcelocator_help>
+<resourcelocatorsrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">The purpose of this element is to point to where the service may be directly accessed online, or to an online resource providing more information about accessing the service.</p>
+      <ol class="help-block">
+        <li>Use the associated resource wizard for adding or editing resource locators.</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#19">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</resourcelocatorsrv_help>
+<dataquality_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">To allow quantitative description of the completeness, consistency, accuracy, and correctness of the data.</p>
+      <ol class="help-block">
+        <li>For INSPIRE compliance at least one <b>conformity report</b> where the <b>quality scope</b> is the entire dataset or series is required.</li>
+        <li>Choose the appropriate report from the picker.</li>
+        <li>To add an additional data quality element, scoped to something other than the whole dataset, switch to advanced view</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1062-gemini-datasets-and-data-series#52">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</dataquality_help>
+<dataqualitysrv_help>
+    <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <p class="help-block">Statement of conformity with the product specification or user requirement against which the data is being evaluated.</p>
+      <ol class="help-block">
+        <li>For INSPIRE compliance at least one <b>conformity report</b> where the <b>quality scope</b> is the entire service is required.</li>
+        <li>Choose the appropriate report for either Spatial Data Services or Network Services respectively from the picker.</li>
+        <li>To add an additional data quality element, scoped to something other than the whole service, switch to advanced view</li>
+        <li>For more guidelines see <a target="_blank" href="https://agiorguk.github.io/gemini/1063-gemini-services#41">Gemini Guidance</a></li>
+      </ol>
+      </div>
+  </div>
+</dataqualitysrv_help>
+<distributionFormat>Add Distribution Format</distributionFormat>
+<parentidentifier>Parent Identifier</parentidentifier>
+<gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd">Metadata</gmd:MD_Metadata>
+
+</strings>
