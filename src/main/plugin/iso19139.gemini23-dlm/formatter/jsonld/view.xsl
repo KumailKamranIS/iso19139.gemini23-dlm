@@ -7,7 +7,7 @@
 
 	<xsl:output method="text"/>
 
-  <xsl:include href="iso19139.gemini23-to-jsonld.xsl"/>
+  <xsl:include href="iso19139.gemini23-dlm-to-jsonld.xsl"/>
 
     <xsl:template match="/">
     <textResponse>

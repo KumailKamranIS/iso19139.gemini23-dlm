@@ -4,20 +4,10 @@ services:
     image: elasticsearch:7.17.15
     environment:
       discovery.type: single-node
-      xpack.security.enabled: "false"
       ES_JAVA_OPTS: -Xms512m -Xmx512m
+      network.host: 0.0.0.0
     ports:
       - "9200:9200"
-      - "9300:9300"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
-    volumes:
-      - esdata:/usr/share/elasticsearch/data
     healthcheck:
       test: ['CMD-SHELL', 'curl -fsS "http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=50s" || exit 1']
       interval: 10s
@@ -34,24 +24,15 @@ services:
       elasticsearch:
         condition: service_healthy
     ports:
-      - "8080:8080"
-    volumes:
-      - geonetwork:/catalogue-data
+      - "8081:8080"
     environment:
       WEBAPP_CONTEXT_PATH: /geonetwork
       ES_HOST: elasticsearch
       ES_PORT: 9200
       ES_PROTOCOL: http
-      GEONETWORK_ES_HOST: elasticsearch
-      GEONETWORK_ES_PORT: 9200
-      GEONETWORK_ES_PROTOCOL: http
-      JAVA_OPTS: -Xms512m -Xmx1024m -Dorg.eclipse.jetty.annotations.AnnotationParser.LEVEL=ERROR
+      JAVA_OPTS: -Xms512m -Xmx1024m -Des.host=elasticsearch -Des.port=9200 -Des.protocol=http
     healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://localhost:8080/geonetwork/srv/api/site || exit 1"]
       interval: 20s
       timeout: 10s
       retries: 30
-
-volumes:
-  esdata:
-  geonetwork:

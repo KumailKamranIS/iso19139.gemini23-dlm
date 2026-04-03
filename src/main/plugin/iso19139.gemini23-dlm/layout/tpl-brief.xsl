@@ -22,33 +22,27 @@
   ~ Rome - Italy. email: geonetwork@osgeo.org
   -->
 
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:gmd="http://www.isotc211.org/2005/gmd"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:gmd="http://www.isotc211.org/2005/gmd"
                 xmlns:gco="http://www.isotc211.org/2005/gco"
                 xmlns:srv="http://www.isotc211.org/2005/srv"
                 xmlns:gmx="http://www.isotc211.org/2005/gmx"
+                xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gn="http://www.fao.org/geonetwork"
-                version="2.0"
-                exclude-result-prefixes="#all">
+                xmlns:gn-fn-core="http://geonetwork-opensource.org/xsl/functions/core"
+                xmlns:gn-fn-iso19139="http://geonetwork-opensource.org/xsl/functions/profiles/iso19139"
+                exclude-result-prefixes="#all"
+                version="2.0">
 
-<xsl:import href="../../iso19139/layout/utility-tpl.xsl"/>
-  <xsl:include href="utility-tpl-multilingual.xsl"/>
+  <xsl:include href="utility-tpl.xsl"/>
 
- <xsl:template name="get-iso19139.gemini23-title">
-    <xsl:call-template name="get-iso19139-title"/>
+  <xsl:template name="iso19139.gemini23-dlmBrief">
+    <metadata>
+      <xsl:call-template name="iso19139-brief"/>
+    </metadata>
   </xsl:template>
 
-	<xsl:template name="get-iso19139.gemini23-is-service">
-		<xsl:call-template name="get-iso19139-is-service"/>
-	</xsl:template>
-
-	<xsl:template name="get-iso19139.gemini23-extents-as-json">
-		<xsl:call-template name="get-iso19139-extents-as-json"/>
-	</xsl:template>
-
-  <xsl:template name="get-iso19139.gemini23-online-source-config">
-    <xsl:param name="pattern"/>
-    <xsl:call-template name="get-iso19139-online-source-config">
-        <xsl:with-param name="pattern" select="$pattern"/>
-    </xsl:call-template>
+  <xsl:template name="iso19139.gemini23-dlm-brief">
+    <xsl:call-template name="iso19139-brief"/>
   </xsl:template>
 </xsl:stylesheet>

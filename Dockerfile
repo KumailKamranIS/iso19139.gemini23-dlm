@@ -1,51 +1,37 @@
-FROM maven:3.9.11-eclipse-temurin-17 AS plugin-builder
+############################################
+# Stage 1 — Build GEMINI schema plugin
+############################################
+
+FROM maven:3.9.14-eclipse-temurin-25 AS plugin-builder
 
 WORKDIR /build
 
-COPY src/main/resources ./src/main/resources
-COPY src/main/plugin/iso19139.gemini23 ./src/main/plugin/iso19139.gemini23
-COPY src/main/config/translations/en-schema-iso19139.gemini23.json ./src/main/config/translations/en-schema-iso19139.gemini23.json
+# copy only required files
+COPY pom.xml .
+COPY src ./src
 
-RUN cat > pom.xml <<'POM'
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.geonetwork-opensource.schemas</groupId>
-  <artifactId>schema-iso19139.gemini23</artifactId>
-  <version>4.2.4-SNAPSHOT</version>
-  <packaging>jar</packaging>
+# build plugin jar
+RUN mvn clean package -DskipTests
 
-  <build>
-    <resources>
-      <resource>
-        <directory>src/main/config/translations</directory>
-        <targetPath>META-INF/catalog/locales</targetPath>
-      </resource>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-      <resource>
-        <directory>src/main/plugin</directory>
-        <targetPath>plugin</targetPath>
-      </resource>
-    </resources>
-  </build>
-</project>
-POM
+# ---------------------------- # Stage 1: GeoNetwork Runtime # ----------------------------
+FROM geonetwork:4.2.14
 
-RUN mvn -B -DskipTests package
-
-FROM scratch AS plugin-jar-export
-
-COPY --from=plugin-builder /build/target/schema-iso19139.gemini23-4.2.4-SNAPSHOT.jar /schema-iso19139.gemini23-4.2.4-SNAPSHOT.jar
-
-FROM geonetwork:4.2
-
+# Switch to root temporarily for file operations
 USER root
 
-COPY --chown=jetty:jetty --from=plugin-builder /build/target/schema-iso19139.gemini23-4.2.4-SNAPSHOT.jar /var/lib/jetty/webapps/geonetwork/WEB-INF/lib/schema-iso19139.gemini23-4.2.4-SNAPSHOT.jar
-COPY --chown=jetty:jetty src/main/plugin/iso19139.gemini23 /var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23
-COPY --chown=jetty:jetty src/main/config/translations/en-schema-iso19139.gemini23.json /var/lib/jetty/webapps/geonetwork/WEB-INF/classes/META-INF/catalog/locales/en-schema-iso19139.gemini23.json
+# ---------------------------- # Copy Schema Plugin Directory # ----------------------------
+COPY src/main/plugin/iso19139.gemini23-dlm \
+  /var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23-dlm
 
+# install compiled schema jar
+COPY --from=plugin-builder \
+  /build/target/schema-iso19139.gemini23-dlm-4.2.14-0.jar \
+  /var/lib/jetty/webapps/geonetwork/WEB-INF/lib
+
+# ---------------------------- # Fix Permissions (CRITICAL) # ----------------------------
+RUN chown -R jetty:jetty \
+  /var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins \
+  /var/lib/jetty/webapps/geonetwork/WEB-INF/lib
+
+# Switch back to non-root user
 USER jetty

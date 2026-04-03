@@ -2,20 +2,31 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <repositories>
+    <repository>
+      <id>osgeo-geonetwork</id>
+      <url>https://repo.osgeo.org/repository/geonetwork-releases/</url>
+    </repository>
+  </repositories>
+
   <parent>
-    <artifactId>gn-schemas</artifactId>
     <groupId>org.geonetwork-opensource.schemas</groupId>
-    <version>4.2.4-SNAPSHOT</version>
+    <artifactId>gn-schemas</artifactId>
+    <version>4.2.14-0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-
-  <artifactId>schema-iso19139.gemini23</artifactId>
+  <artifactId>schema-iso19139.gemini23-dlm</artifactId>
 
   <name>ISO 19139 Gemini 2.3 Metadata Profile</name>
   <description>
     GeoNetwork schema plugin for the Gemini 2.3 profile for datasets, series and services.
   </description>
+
+  <properties>
+    <project.groupId>org.geonetwork-opensource</project.groupId>
+    <project.version>4.2.14-0</project.version>
+  </properties>
 
   <dependencies>
     <dependency>

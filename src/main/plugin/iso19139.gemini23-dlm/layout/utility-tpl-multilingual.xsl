@@ -22,27 +22,28 @@
   ~ Rome - Italy. email: geonetwork@osgeo.org
   -->
 
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:gmd="http://www.isotc211.org/2005/gmd"
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:gmd="http://www.isotc211.org/2005/gmd"
                 xmlns:gco="http://www.isotc211.org/2005/gco"
-                xmlns:srv="http://www.isotc211.org/2005/srv"
-                xmlns:gmx="http://www.isotc211.org/2005/gmx"
-                xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:gn="http://www.fao.org/geonetwork"
-                xmlns:gn-fn-core="http://geonetwork-opensource.org/xsl/functions/core"
-                xmlns:gn-fn-iso19139="http://geonetwork-opensource.org/xsl/functions/profiles/iso19139"
-                exclude-result-prefixes="#all"
-                version="2.0">
+                xmlns:xslutil="java:org.fao.geonet.util.XslUtil"
+                version="2.0"
+                exclude-result-prefixes="#all">
 
-  <xsl:include href="utility-tpl.xsl"/>
+  <xsl:import href="../../iso19139/layout/utility-tpl-multilingual.xsl"/>
 
-  <xsl:template name="iso19139.gemini23Brief">
-    <metadata>
-      <xsl:call-template name="iso19139-brief"/>
-    </metadata>
+  <!-- Get the main metadata languages -->
+  <xsl:template name="get-iso19139.gemini23-dlm-language">
+    <xsl:call-template name="get-iso19139-language"/>
   </xsl:template>
 
-  <xsl:template name="iso19139.gemini23-brief">
-    <xsl:call-template name="iso19139-brief"/>
+  <!-- Get the list of other languages in JSON -->
+  <xsl:template name="get-iso19139.gemini23-dlm-other-languages-as-json">
+    <xsl:call-template name="get-iso19139-other-languages-as-json"/>
   </xsl:template>
+
+  <!-- Get the list of other languages -->
+  <xsl:template name="get-iso19139.gemini23-dlm-other-languages">
+    <xsl:call-template name="get-iso19139-other-languages"/>
+  </xsl:template>
+
 </xsl:stylesheet>

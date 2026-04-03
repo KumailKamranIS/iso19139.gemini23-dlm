@@ -41,12 +41,12 @@
   <!--
     Load the schema configuration for the editor.
       -->
-  <xsl:template name="get-iso19139.gemini23-configuration">
+  <xsl:template name="get-iso19139.gemini23-dlm-configuration">
     <xsl:copy-of select="document('config-editor.xml')"/>
   </xsl:template>
 
 
-  <xsl:template name="dispatch-iso19139.gemini23">
+  <xsl:template name="dispatch-iso19139.gemini23-dlm">
     <xsl:param name="base" as="node()"/>
     <xsl:param name="overrideLabel" as="xs:string?" required="no" select="''"/>
     <xsl:param name="refToDelete" as="node()?" required="no"/>

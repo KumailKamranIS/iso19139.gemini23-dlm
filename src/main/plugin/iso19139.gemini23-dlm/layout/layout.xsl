@@ -110,7 +110,7 @@
 
 
   <!-- Visit all XML tree recursively -->
-  <xsl:template mode="mode-iso19139.gemini23" match="*|@*">
+  <xsl:template mode="mode-iso19139.gemini23-dlm" match="*|@*">
     <xsl:param name="schema" select="$schema" required="no"/>
     <xsl:param name="labels" select="$labels" required="no"/>
 

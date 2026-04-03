@@ -46,7 +46,7 @@
    <xsl:import href="../../iso19139/layout/evaluate.xsl"/>
 
   <!-- The following templates usually delegates all to iso19139. -->
-  <xsl:template name="evaluate-iso19139.gemini23">
+  <xsl:template name="evaluate-iso19139.gemini23-dlm">
     <xsl:param name="base" as="node()"/>
     <xsl:param name="in"/>
     <!-- <xsl:message>in xml <xsl:copy-of select="$base"></xsl:copy-of></xsl:message>
@@ -69,7 +69,7 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template name="evaluate-iso19139.gemini23-boolean">
+  <xsl:template name="evaluate-iso19139.gemini23-dlm-boolean">
     <xsl:param name="base" as="node()"/>
     <xsl:param name="in"/>
 

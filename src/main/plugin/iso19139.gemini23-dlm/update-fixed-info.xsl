@@ -128,7 +128,7 @@
     <!-- Retrieve the translation for the codeListValue attribute -->
     <xsl:variable name="codelistTranslation"
                   select="tr:codelist-value-label(
-                            tr:create('iso19139.gemini23'),
+                            tr:create('iso19139.gemini23-dlm'),
                             local-name(), @codeListValue)"/>
 
     <gmd:LanguageCode codeList="http://www.loc.gov/standards/iso639-2/">

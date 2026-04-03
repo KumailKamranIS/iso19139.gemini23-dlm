@@ -67,7 +67,7 @@
   <xsl:include href="../../layout/evaluate.xsl"/>
   <xsl:include href="../../layout/utility-tpl-multilingual.xsl"/>
   <xsl:include href="../../layout/utility-fn.xsl"/>
-  <xsl:include href="../../formatter/jsonld/iso19139.gemini23-to-jsonld.xsl"/>
+  <xsl:include href="../../formatter/jsonld/iso19139.gemini23-dlm-to-jsonld.xsl"/>
   <xsl:include href="../../formatter/citation/base.xsl"/>
   <xsl:include href="../../../iso19115-3.2018/formatter/citation/common.xsl"/>
 

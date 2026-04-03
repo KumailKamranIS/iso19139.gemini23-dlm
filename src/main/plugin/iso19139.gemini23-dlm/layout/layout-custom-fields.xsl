@@ -13,7 +13,7 @@
 
   <!-- Readonly elements -->
   <!-- Uncomment to make gmd:metadataStandardName and gmd:metadataStandardVersion readonly -->
-<xsl:template mode="mode-iso19139" priority="5000" match="gmd:metadataStandardName[$schema='iso19139.gemini23']|gmd:metadataStandardVersion[$schema='iso19139.gemini23']">
+<xsl:template mode="mode-iso19139" priority="5000" match="gmd:metadataStandardName[$schema='iso19139.gemini23-dlm']|gmd:metadataStandardVersion[$schema='iso19139.gemini23-dlm']">
     <xsl:param name="schema" select="$schema" required="no"/>
     <xsl:param name="labels" select="$labels" required="no"/>
     <xsl:param name="overrideLabel" select="''" required="no"/>
@@ -58,7 +58,7 @@
        doesn't use the current schema codelists, so has to be overriden with higher priority than same template in iso19139 (priority=200).
        Be careful with priority to not be higher than the template for gmd:dateType (4000) or will cause side effects. -->
 
-  <xsl:template mode="mode-iso19139" priority="500" match="*[*/@codeList and $schema='iso19139.gemini23']">
+  <xsl:template mode="mode-iso19139" priority="500" match="*[*/@codeList and $schema='iso19139.gemini23-dlm']">
     <xsl:param name="schema" select="$schema" required="no"/>
     <xsl:param name="labels" select="$labels" required="no"/>
     <xsl:param name="codelists" select="$codelists" required="no"/>
@@ -99,7 +99,7 @@
   </xsl:template>
 
    <!-- otherConstraints with gmx:Anchor -->
-  <xsl:template mode="mode-iso19139" priority="200" match="gmd:otherConstraints[$schema='iso19139.gemini23' and gmx:Anchor]">
+  <xsl:template mode="mode-iso19139" priority="200" match="gmd:otherConstraints[$schema='iso19139.gemini23-dlm' and gmx:Anchor]">
     <xsl:variable name="name" select="name(.)"/>
 
     <xsl:variable name="labelConfig" select="gn-fn-metadata:getLabel($schema, $name, $labels)"/>
@@ -140,7 +140,7 @@
        Any template to handle gml elements that is defined in iso19139 should be redefined in the GEMINI schema to use
        the correct namespace url.
   -->
-  <xsl:template mode="mode-iso19139" match="gml:beginPosition[$schema='iso19139.gemini23']|gml:endPosition[$schema='iso19139.gemini23']|gml:timePosition[$schema='iso19139.gemini23']"
+  <xsl:template mode="mode-iso19139" match="gml:beginPosition[$schema='iso19139.gemini23-dlm']|gml:endPosition[$schema='iso19139.gemini23-dlm']|gml:timePosition[$schema='iso19139.gemini23-dlm']"
                 priority="5000">
 
     <xsl:variable name="xpath" select="gn-fn-metadata:getXPath(.)"/>
@@ -204,7 +204,7 @@
 
       A custom directive is created.
  -->
-  <xsl:template mode="mode-iso19139" match="gml:duration[$schema='iso19139.gemini23']" priority="200">
+  <xsl:template mode="mode-iso19139" match="gml:duration[$schema='iso19139.gemini23-dlm']" priority="200">
 
     <xsl:variable name="xpath" select="gn-fn-metadata:getXPath(.)"/>
     <xsl:variable name="isoType" select="if (../@gco:isoType) then ../@gco:isoType else ''"/>
@@ -226,7 +226,7 @@
 
   <!-- Topic categories boxed -->
   <xsl:template mode="mode-iso19139"
-                match="gmd:topicCategory[position() =1 and $schema='iso19139.gemini23']"
+                match="gmd:topicCategory[position() =1 and $schema='iso19139.gemini23-dlm']"
                 priority="2200">
 
     <xsl:variable name="xpath" select="gn-fn-metadata:getXPath(.)"/>
@@ -276,7 +276,7 @@
 
   <!-- Service type boxed -->
   <xsl:template mode="mode-iso19139"
-                match="srv:serviceType[$schema='iso19139.gemini23']"
+                match="srv:serviceType[$schema='iso19139.gemini23-dlm']"
                 priority="2200">
 
     <xsl:param name="schema" select="$schema" required="no"/>
@@ -333,7 +333,7 @@
 
   <!-- spatial representation type boxed -->
   <xsl:template mode="mode-iso19139"
-                match="gmd:spatialRepresentationType[$schema='iso19139.gemini23']"
+                match="gmd:spatialRepresentationType[$schema='iso19139.gemini23-dlm']"
                 priority="2200">
 
     <xsl:param name="schema" select="$schema" required="no"/>
@@ -394,7 +394,7 @@
 
 
  <xsl:template mode="mode-iso19139"
-               match="gmd:verticalCRS[(count(gml:*) = 0) and $schema='iso19139.gemini23']"
+               match="gmd:verticalCRS[(count(gml:*) = 0) and $schema='iso19139.gemini23-dlm']"
                priority="2200">
 
    <xsl:param name="schema" select="$schema" required="no"/>
