@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <repositories>
+    <repository>
+      <id>osgeo-geonetwork</id>
+      <url>https://repo.osgeo.org/repository/geonetwork-releases/</url>
+    </repository>
+  </repositories>
+
+  <parent>
+    <groupId>org.geonetwork-opensource.schemas</groupId>
+    <artifactId>gn-schemas</artifactId>
+    <version>4.2.14-0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>schema-iso19139.gemini23</artifactId>
+
+  <name>ISO 19139 Gemini 2.3 Metadata Profile</name>
+  <description>
+    GeoNetwork schema plugin for the Gemini 2.3 profile for datasets, series and services.
+  </description>
+
+  <properties>
+    <project.groupId>org.geonetwork-opensource</project.groupId>
+    <project.version>4.2.14-0</project.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>gn-schema-core</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>gn-schema-iso19139</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.xmlunit</groupId>
+      <artifactId>xmlunit-core</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xmlunit</groupId>
+      <artifactId>xmlunit-matchers</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+
+    <resources>
+      <resource>
+        <directory>src/main/config/translations</directory>
+        <targetPath>META-INF/catalog/locales</targetPath>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>src/main/plugin</directory>
+        <targetPath>plugin</targetPath>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.5</version>
+        <executions>
+          <execution>
+            <id>test-jar</id>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <finalName>${project.artifactId}-${project.version}</finalName>
+              <appendAssemblyId>false</appendAssemblyId>
+              <descriptors>
+                <descriptor>src/assembly/schema-plugin.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>run-static-analysis</id>
+      <activation>
+        <property>
+          <name>!skipTests</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>findbugs-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>
