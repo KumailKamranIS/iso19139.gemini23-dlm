@@ -24,7 +24,7 @@ services:
       elasticsearch:
         condition: service_healthy
     ports:
-      - "8081:8080"
+      - "8080:8080"
     environment:
       WEBAPP_CONTEXT_PATH: /geonetwork
       ES_HOST: elasticsearch
