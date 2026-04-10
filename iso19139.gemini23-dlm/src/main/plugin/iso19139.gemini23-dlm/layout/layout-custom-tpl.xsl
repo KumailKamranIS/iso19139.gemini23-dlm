@@ -23,7 +23,7 @@
                         (1 or @gn:addedObj = 'true') and
                         $isFlatMode]"
                 priority="3000">
-    <xsl:call-template name="iso19139-table-gemini23"/>
+    <xsl:call-template name="iso19139-table-gemini23-dlm"/>
   </xsl:template>
 
   <!-- Ignore the following -->
@@ -36,7 +36,7 @@
                 priority="3000"/>
 
   <!-- Define table layout -->
-  <xsl:template name="iso19139-table-gemini23">
+  <xsl:template name="iso19139-table-gemini23-dlm">
     <xsl:variable name="name" select="name()"/>
     <xsl:variable name="xpath" select="gn-fn-metadata:getXPath(.)"/>
     <xsl:variable name="isoType" select="if (../@gco:isoType) then ../@gco:isoType else ''"/>
