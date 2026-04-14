@@ -53,7 +53,6 @@ services:
 
 
   geonetwork:
-    # image: geonetwork:4.2.9
     build:
       context: .
       dockerfile: Dockerfile
@@ -74,8 +73,6 @@ services:
       ES_HOST: elasticsearch
       ES_PROTOCOL: http
       ES_PORT: 9200
-
-      KB_URL: http://kibana:5601
 
       GEONETWORK_DB_TYPE: postgres
       GEONETWORK_DB_HOST: database
@@ -134,17 +131,5 @@ services:
       discovery.type: single-node
     volumes:
       - esdata:/usr/share/elasticsearch/data
-    networks:
-      - gn-network
-
-  kibana:
-    image: kibana:7.17.15
-    environment:
-      SERVER_NAME: 'kibana'
-      ELASTICSEARCH_URL: http://elasticsearch:9200/
-      SERVER_BASEPATH: /geonetwork/dashboards
-      SERVER_REWRITEBASEPATH: 'false'
-      KIBANA_INDEX: .dashboards
-      XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED: 'true'
     networks:
       - gn-network
