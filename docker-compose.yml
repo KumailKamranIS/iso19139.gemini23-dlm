@@ -5,7 +5,6 @@ volumes:
   esdata:
   pgdata:
   pglog:
-  nginxlog:
   apachelog:
 
 
@@ -15,24 +14,6 @@ networks:
 
 
 services:
-  www:
-    image: nginx
-    ports:
-      - 80:80
-    environment:
-      # Only used for / redirect to default webapp
-      - NGINX_PUBLIC_HOST=195.201.225.214
-      #- NGINX_PUBLIC_HOST=apps.titellus.net
-      - NGINX_HOST=195.201.225.214
-      - NGINX_PORT=80
-    volumes:
-      - ./nginx:/etc/nginx/templates
-      - nginxlog:/var/log/nginx
-    depends_on:
-      - geonetwork
-    networks:
-      - gn-network
-
   database:
     image: postgis/postgis:11-2.5
     environment:
