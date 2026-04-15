@@ -1,0 +1,114 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geonetwork-dlm-deployment
+  labels:
+    app: geonetwork-dlm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: geonetwork-dlm
+  template:
+    metadata:
+      labels:
+        app: geonetwork-dlm
+    spec:
+      containers:
+      - name: geonetwork-dlm
+        image: geonetwork-dlm:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: WEBAPP_CONTEXT_PATH
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: WEBAPP_CONTEXT_PATH
+
+        - name: JAVA_OPTS
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: JAVA_OPTS
+
+        - name: ES_HOST
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: ES_HOST
+
+        - name: ES_PORT
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: ES_PORT
+
+
+        - name: ES_PROTOCOL
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: ES_PROTOCOL
+
+        - name: GEONETWORK_DB_TYPE
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: GEONETWORK_DB_TYPE
+
+        - name: GEONETWORK_DB_HOST
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: GEONETWORK_DB_HOST              
+
+        - name: GEONETWORK_DB_PORT
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: GEONETWORK_DB_PORT 
+
+        - name: GEONETWORK_DB_NAME
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: GEONETWORK_DB_NAME 
+
+        - name: GEONETWORK_DB_USERNAME
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: GEONETWORK_DB_USERNAME 
+
+        - name: GEONETWORK_DB_PASSWORD
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: GEONETWORK_DB_PASSWORD 
+
+
+        # livenessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: 8080
+        #     httpHeaders:
+        #     - name: Custom-Header
+        #       value: Awesome
+        #   initialDelaySeconds: 3
+        #   periodSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: geonetwork-dlm-service
+spec:
+  type: NodePort
+  selector:
+    app: geonetwork-dlm
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30100

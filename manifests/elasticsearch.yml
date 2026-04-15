@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch-deployment
+  labels:
+    app: elasticsearch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+      - name: elasticsearch
+        image: elasticsearch:7.17.15
+        ports:
+        - containerPort: 9200
+        env:
+        - name: discovery.type
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: discovery.type
+
+        - name: ES_JAVA_OPTS
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: ES_JAVA_OPTS
+
+        - name: network.host
+          valueFrom: 
+            configMapKeyRef:
+              name: geonetwork-config
+              key: network.host
+        # livenessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: 8080
+        #     httpHeaders:
+        #     - name: Custom-Header
+        #       value: Awesome
+        #   initialDelaySeconds: 3
+        #   periodSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticsearch-service
+spec:
+  selector:
+    app: elasticsearch
+  ports:
+    - protocol: TCP
+      port: 9200
+      targetPort: 9200
