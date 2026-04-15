@@ -15,6 +15,14 @@ Services:
 
 The compose stack includes Elasticsearch as the search dependency required by GeoNetwork.
 
+## Run with kubernetes locally
+
+```sh
+eval $(minikube docker-env)
+docker build -t geonetwork-dlm:latest .
+minikube image load geonetwork-dlm:latest
+```
+
 ## Manual verification
 
 1. Open `http://localhost:8081/geonetwork`.

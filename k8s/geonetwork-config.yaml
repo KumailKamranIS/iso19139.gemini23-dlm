@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: geonetwork-config
+data:
+  hello: world
+  discovery.type: single-node
+  ES_JAVA_OPTS: -Xms512m -Xmx512m
+  network.host: 0.0.0.0
+  WEBAPP_CONTEXT_PATH: /geonetwork
+  ES_HOST: elasticsearch-service
+  ES_PORT: "9200"
+  ES_PROTOCOL: http
+  JAVA_OPTS: -Xms512m -Xmx1024m -Des.host=elasticsearch-service -Des.port=9200 -Des.protocol=http
