@@ -22,3 +22,14 @@ data:
   GEONETWORK_DB_NAME: geonetwork
   GEONETWORK_DB_USERNAME: geonetwork
   GEONETWORK_DB_PASSWORD: geonetwork
+
+
+  SPRING_PROFILES_ACTIVE: standalone
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgis-service:5432/geonetwork
+  SPRING_DATASOURCE_USERNAME: geonetwork
+  SPRING_DATASOURCE_PASSWORD: geonetwork
+  GN_BASEURL: http://geonetwork-service:8080/geonetwork/api
+  GN_LEGACY_URL: http://geonetwork-service:8080/geonetwork
+  GN_INDEX_URL: http://elasticsearch-service:9200
+  SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
+  OGC_RECORDS_API_JAVA_OPTS: -Dfile.encoding=UTF-8

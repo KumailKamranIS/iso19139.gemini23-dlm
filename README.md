@@ -40,6 +40,12 @@ minikube ip
 minikube delete --all
 ```
 
+To restart an app after config changes:
+
+```sh
+kubectl apply -f manifests/geonetwork-config.yml
+kubectl rollout restart deployment ogc-records-api-deployment
+```
 
 ## Manual verification
 
