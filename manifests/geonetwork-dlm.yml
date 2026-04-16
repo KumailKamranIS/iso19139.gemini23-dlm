@@ -18,6 +18,13 @@ spec:
       - name: geonetwork-dlm
         image: geonetwork-dlm:latest
         imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /geonetwork/criticalhealthcheck
+            port: 8080
+          initialDelaySeconds: 30 # usually takes about 30 seconds for app to start, somtimes more.
+          periodSeconds: 10
+          failureThreshold: 4
         ports:
         - containerPort: 8080
         env:
