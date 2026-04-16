@@ -30,7 +30,7 @@ spec:
       containers:
       - name: postgis
         resources: {}
-        image: postgis/postgis:11-2.5
+        image: postgis/postgis:18-3.6
         ports:
         - containerPort: 5432
         env:
@@ -51,7 +51,7 @@ spec:
               key: POSTGRES_DB
         volumeMounts:
         - name: postgis-data
-          mountPath: /var/lib/postgresql/data
+          mountPath: /var/lib/postgresql # /var/lib/postgresql/data <- Change to this if you change to a postgres version < 18
       volumes:
       - name: postgis-data
         persistentVolumeClaim:

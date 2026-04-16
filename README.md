@@ -18,8 +18,6 @@ The compose stack includes Elasticsearch as the search dependency required by Ge
 
 ## Run on a local kubernetes cluster
 
-
-
 ```sh
 minikube start
 
@@ -43,9 +41,14 @@ minikube delete --all
 To restart an app after config changes:
 
 ```sh
-kubectl apply -f manifests/geonetwork-config.yml
 kubectl rollout restart deployment ogc-records-api-deployment
 ```
+
+### Settings while running locally
+
+You will need to change a setting in the configuration to get geonetwork to work properly when using its UI. In production, this would be set once, stored in the DB and then shared between geonetwork instances.
+
+Login as admin, go to settings. Look for `Catalog server` and change it to the url and port of the geonetwork instance.
 
 ## Manual verification
 
