@@ -1,3 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: geonetwork-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,6 +41,9 @@ spec:
           failureThreshold: 4
         ports:
         - containerPort: 8080
+
+
+
         env:
         - name: WEBAPP_CONTEXT_PATH
           valueFrom: 
@@ -96,16 +112,14 @@ spec:
               name: geonetwork-config
               key: GEONETWORK_DB_PASSWORD 
 
+        volumeMounts:
+        - name: geonetwork-data
+          mountPath: /opt/geonetwork/WEB-INF/data
+      volumes:
+      - name: geonetwork-data
+        persistentVolumeClaim:
+          claimName: geonetwork-data
 
-        # livenessProbe:
-        #   httpGet:
-        #     path: /
-        #     port: 8080
-        #     httpHeaders:
-        #     - name: Custom-Header
-        #       value: Awesome
-        #   initialDelaySeconds: 3
-        #   periodSeconds: 3
 ---
 apiVersion: v1
 kind: Service
