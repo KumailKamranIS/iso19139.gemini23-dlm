@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: ogc-records-api
+        resources: {}
         image: geonetwork/gn-cloud-ogc-api-records-service:4.2.9-0
         livenessProbe:
           tcpSocket:

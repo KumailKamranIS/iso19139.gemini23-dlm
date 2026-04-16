@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: geonetwork-dlm
+        resources: {}
         image: geonetwork-dlm:latest
         imagePullPolicy: IfNotPresent
         livenessProbe:

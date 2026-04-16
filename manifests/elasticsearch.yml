@@ -1,3 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: elasticsearch-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,36 +29,34 @@ spec:
     spec:
       containers:
       - name: elasticsearch
+        resources: {}
         image: elasticsearch:7.17.15
         ports:
         - containerPort: 9200
         env:
         - name: discovery.type
-          valueFrom: 
+          valueFrom:
             configMapKeyRef:
               name: geonetwork-config
               key: discovery.type
-
         - name: ES_JAVA_OPTS
-          valueFrom: 
+          valueFrom:
             configMapKeyRef:
               name: geonetwork-config
               key: ES_JAVA_OPTS
-
         - name: network.host
-          valueFrom: 
+          valueFrom:
             configMapKeyRef:
               name: geonetwork-config
               key: network.host
-        # livenessProbe:
-        #   httpGet:
-        #     path: /
-        #     port: 8080
-        #     httpHeaders:
-        #     - name: Custom-Header
-        #       value: Awesome
-        #   initialDelaySeconds: 3
-        #   periodSeconds: 3
+        volumeMounts:
+        - name: elasticsearch-data
+          mountPath: /usr/share/elasticsearch/data
+      volumes:
+      - name: elasticsearch-data
+        persistentVolumeClaim:
+          claimName: elasticsearch-data
+
 ---
 apiVersion: v1
 kind: Service

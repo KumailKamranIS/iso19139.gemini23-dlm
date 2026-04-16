@@ -1,3 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgis-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: standard
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,27 +29,34 @@ spec:
     spec:
       containers:
       - name: postgis
+        resources: {}
         image: postgis/postgis:11-2.5
         ports:
         - containerPort: 5432
         env:
         - name: POSTGRES_USER
-          valueFrom: 
+          valueFrom:
             configMapKeyRef:
               name: geonetwork-config
               key: POSTGRES_USER
-
         - name: POSTGRES_PASSWORD
-          valueFrom: 
+          valueFrom:
             configMapKeyRef:
               name: geonetwork-config
               key: POSTGRES_PASSWORD
-
         - name: POSTGRES_DB
-          valueFrom: 
+          valueFrom:
             configMapKeyRef:
               name: geonetwork-config
               key: POSTGRES_DB
+        volumeMounts:
+        - name: postgis-data
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: postgis-data
+        persistentVolumeClaim:
+          claimName: postgis-data
+
 ---
 apiVersion: v1
 kind: Service
