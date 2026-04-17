@@ -19,7 +19,7 @@ The compose stack includes Elasticsearch as the search dependency required by Ge
 ## Run on a local kubernetes cluster
 
 ```sh
-minikube start
+minikube start --memory=8192 --cpus=4
 
 eval $(minikube docker-env)
 # IRL this will be on a ACR

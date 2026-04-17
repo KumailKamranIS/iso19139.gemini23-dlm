@@ -4,7 +4,7 @@ metadata:
   name: geonetwork-data
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 10Gi
@@ -34,16 +34,20 @@ spec:
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
-            path: /geonetwork/criticalhealthcheck
+            path: /geonetwork/srv/eng/catalog.search#/home # Do not use /geonetwork/criticalhealthcheck
             port: 8080
-          initialDelaySeconds: 30 # usually takes about 30 seconds for app to start, somtimes more.
+          initialDelaySeconds: 180 # geonetwork needs a while
           periodSeconds: 10
           failureThreshold: 4
+        readinessProbe:
+          httpGet:
+            path: /geonetwork/srv/eng/catalog.search#/home
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+
         ports:
         - containerPort: 8080
-
-
-
         env:
         - name: WEBAPP_CONTEXT_PATH
           valueFrom: 

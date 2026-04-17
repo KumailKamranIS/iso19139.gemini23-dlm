@@ -18,6 +18,18 @@ spec:
     - port: 9300
       name: transport
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticsearch-client
+  namespace: elasticsearch
+spec:
+  selector:
+    app: elasticsearch
+  ports:
+    - port: 9200
+      targetPort: 9200
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -36,7 +48,7 @@ spec:
     spec:
       containers:
         - name: elasticsearch
-          image: docker.elastic.co/elasticsearch/elasticsearch:8.13.0
+          image: docker.elastic.co/elasticsearch/elasticsearch:7.17.15 # Do not increase this, geonetwork relies on this older version of elastic.
           ports:
             - containerPort: 9200
               name: http
