@@ -88,11 +88,11 @@ kind: Service
 metadata:
   name: ogc-records-api-service
 spec:
-  type: NodePort
+  # type: NodePort
   selector:
     app: ogc-records-api
   ports:
     - protocol: TCP
-      port: 9201
+      port: 30200
       targetPort: 8080
-      nodePort: 30200
+      # nodePort: 30200

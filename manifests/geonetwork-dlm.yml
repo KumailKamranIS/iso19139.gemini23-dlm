@@ -136,11 +136,11 @@ kind: Service
 metadata:
   name: geonetwork-dlm-service
 spec:
-  type: NodePort
+  # type: NodePort
   selector:
     app: geonetwork-dlm
   ports:
     - protocol: TCP
-      port: 8080
+      port: 30100
       targetPort: 8080
-      nodePort: 30100
+      # nodePort: 30100
