@@ -25,7 +25,11 @@ eval $(minikube docker-env)
 # IRL this will be on a ACR
 minikube image load geonetwork-dlm:latest
 
-# order is important here.
+minikube ssh "sudo sysctl -w vm.max_map_count=262144"
+
+
+# order is important here. It shouldn't matter, but Geonetwork and ogc-records-api 
+# are written this way.
 kubectl apply -f manifests/geonetwork-config.yml
 kubectl apply -f manifests/elasticsearch.yml
 kubectl apply -f manifests/postgis.yml

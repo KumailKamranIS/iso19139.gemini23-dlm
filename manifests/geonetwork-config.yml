@@ -3,7 +3,6 @@ kind: ConfigMap
 metadata:
   name: geonetwork-config
 data:
-  hello: world
   discovery.type: single-node
   ES_JAVA_OPTS: -Xms512m -Xmx512m
   network.host: 0.0.0.0

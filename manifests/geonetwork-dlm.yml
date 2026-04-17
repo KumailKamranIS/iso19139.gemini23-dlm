@@ -114,7 +114,7 @@ spec:
 
         volumeMounts:
         - name: geonetwork-data
-          mountPath: /opt/geonetwork/WEB-INF/data
+          mountPath: /var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/metadata_data # Used to store thumbnails + file attachments
       volumes:
       - name: geonetwork-data
         persistentVolumeClaim:
