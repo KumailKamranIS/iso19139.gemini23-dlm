@@ -18,7 +18,7 @@ metadata:
   labels:
     app: geonetwork-dlm
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: geonetwork-dlm
@@ -36,14 +36,14 @@ spec:
           httpGet:
             path: /geonetwork/srv/eng/catalog.search#/home # Do not use /geonetwork/criticalhealthcheck
             port: 8080
-          initialDelaySeconds: 180 # geonetwork needs a while
+          initialDelaySeconds: 60 # geonetwork needs a while
           periodSeconds: 10
           failureThreshold: 4
         readinessProbe:
           httpGet:
             path: /geonetwork/srv/eng/catalog.search#/home
             port: 8080
-          initialDelaySeconds: 30
+          initialDelaySeconds: 60
           periodSeconds: 10
 
         ports:
@@ -106,15 +106,15 @@ spec:
 
         - name: GEONETWORK_DB_USERNAME
           valueFrom: 
-            configMapKeyRef:
-              name: geonetwork-config
-              key: GEONETWORK_DB_USERNAME 
+            secretKeyRef:
+              name: geonetwork-secrets
+              key: POSTGRES_USER
 
         - name: GEONETWORK_DB_PASSWORD
           valueFrom: 
-            configMapKeyRef:
-              name: geonetwork-config
-              key: GEONETWORK_DB_PASSWORD 
+            secretKeyRef:
+              name: geonetwork-secrets
+              key: POSTGRES_PASSWORD
 
         volumeMounts:
         - name: geonetwork-data

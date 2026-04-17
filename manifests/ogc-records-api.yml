@@ -5,7 +5,7 @@ metadata:
   labels:
     app: ogc-records-api
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: ogc-records-api
@@ -37,16 +37,18 @@ spec:
             configMapKeyRef:
               name: geonetwork-config
               key: SPRING_DATASOURCE_URL
+
         - name: SPRING_DATASOURCE_USERNAME
           valueFrom: 
-            configMapKeyRef:
-              name: geonetwork-config
-              key: SPRING_DATASOURCE_USERNAME
+            secretKeyRef:
+              name: geonetwork-secrets
+              key: POSTGRES_USER
+
         - name: SPRING_DATASOURCE_PASSWORD
           valueFrom: 
-            configMapKeyRef:
-              name: geonetwork-config
-              key: SPRING_DATASOURCE_PASSWORD
+            secretKeyRef:
+              name: geonetwork-secrets
+              key: POSTGRES_PASSWORD
         - name: GN_BASEURL
           valueFrom: 
             configMapKeyRef:
