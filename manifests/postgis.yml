@@ -35,14 +35,14 @@ spec:
         - containerPort: 5432
         env:
         - name: POSTGRES_USER
-          valueFrom:
-            configMapKeyRef:
-              name: geonetwork-config
+          valueFrom: 
+            secretKeyRef:
+              name: geonetwork-secrets
               key: POSTGRES_USER
         - name: POSTGRES_PASSWORD
-          valueFrom:
-            configMapKeyRef:
-              name: geonetwork-config
+          valueFrom: 
+            secretKeyRef:
+              name: geonetwork-secrets
               key: POSTGRES_PASSWORD
         - name: POSTGRES_DB
           valueFrom:

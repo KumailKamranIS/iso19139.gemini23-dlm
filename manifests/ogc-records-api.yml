@@ -16,7 +16,13 @@ spec:
     spec:
       containers:
       - name: ogc-records-api
-        resources: {}
+        resources: 
+          requests:
+            cpu: "0.5"
+            memory: 1Gi
+          limits:
+            cpu: "1"
+            memory: 2Gi
         image: geonetwork/gn-cloud-ogc-api-records-service:4.2.9-0
         livenessProbe:
           tcpSocket:
