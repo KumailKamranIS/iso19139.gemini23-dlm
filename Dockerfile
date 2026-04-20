@@ -29,7 +29,7 @@ COPY iso19139.gemini23-dlm/src ./src
 RUN mvn clean package -DskipTests
 
 # ---------------------------- # Stage 1: GeoNetwork Runtime # ----------------------------
-FROM geonetwork:4.2.14
+FROM geonetwork:4.2.9
 
 # Switch to root temporarily for file operations
 USER root

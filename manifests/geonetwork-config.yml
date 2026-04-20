@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: geonetwork-config
+data:
+  # geonetwork
+  WEBAPP_CONTEXT_PATH: /geonetwork
+  ES_HOST: elasticsearch-client.elasticsearch.svc.cluster.local
+  ES_PORT: "9200"
+  ES_PROTOCOL: http
+  JAVA_OPTS: -Xms512m -Xmx1024m -Des.host=elasticsearch-client.elasticsearch.svc.cluster.local -Des.port=9200 -Des.protocol=http
+  POSTGRES_DB: geonetwork
+  GEONETWORK_DB_TYPE: postgres
+  GEONETWORK_DB_HOST: postgis-service
+  GEONETWORK_DB_PORT: "5432"
+  GEONETWORK_DB_NAME: geonetwork
+  # OGC
+  SPRING_PROFILES_ACTIVE: standalone
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgis-service:5432/geonetwork
+  GN_BASEURL: http://geonetwork-service:8080/geonetwork/api
+  GN_LEGACY_URL: http://geonetwork-service:8080/geonetwork
+  GN_INDEX_URL: http://elasticsearch-client.elasticsearch.svc.cluster.local:9200
+  SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
+  OGC_RECORDS_API_JAVA_OPTS: -Dfile.encoding=UTF-8
