@@ -15,6 +15,46 @@ Services:
 
 The compose stack includes Elasticsearch as the search dependency required by GeoNetwork.
 
+
+## Run on a local kubernetes cluster
+
+```sh
+minikube start --memory=8192 --cpus=4
+
+eval $(minikube docker-env)
+# IRL this will be on a ACR
+minikube image load geonetwork-dlm:latest
+
+minikube ssh "sudo sysctl -w vm.max_map_count=262144"
+
+
+# order is important here. It shouldn't matter, but Geonetwork and ogc-records-api 
+# are written this way.
+kubectl apply -f manifests/geonetwork-secrets.yml
+kubectl apply -f manifests/geonetwork-config.yml
+kubectl apply -f manifests/elasticsearch.yml
+kubectl apply -f manifests/postgis.yml
+kubectl apply -f manifests/geonetwork-dlm.yml
+
+# To check the IP the cluster is running on:
+minikube ip
+
+# cleanup
+minikube delete --all
+```
+
+To restart an app after config changes:
+
+```sh
+kubectl rollout restart deployment ogc-records-api-deployment
+```
+
+### Settings while running locally
+
+You will need to change a setting in the configuration to get geonetwork to work properly when using its UI. In production, this would be set once, stored in the DB and then shared between geonetwork instances.
+
+Login as admin, go to settings. Look for `Catalog server` and change it to the url and port of the geonetwork instance.
+
 ## Manual verification
 
 1. Open `http://localhost:8081/geonetwork`.

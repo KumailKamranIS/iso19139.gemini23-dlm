@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: geonetwork-ingress
+spec:
+  rules:
+    - host: myapp.local
+      http:
+        paths:
+          - path: /geonetwork
+            pathType: Prefix
+            backend:
+              service:
+                name: geonetwork-dlm-service
+                port:
+                  number: 30100
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: records-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    - host: myapp.local
+      http:
+        paths:
+          - path: /records(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: ogc-records-api-service
+                port:
+                  number: 30200
